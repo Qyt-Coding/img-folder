@@ -1,0 +1,41 @@
+qyt-01
+	controller：(内网，桥接)ens33：192.168.50.101  
+		（外网，NAT）ens37:192.168.25.128 /192.168.25.134
+	compute：(内网，桥接)ens33：192.168.50.102 
+		（外网，NAT）ens37:192.168.25.129
+
+
+
+
+[openstack-ocata]
+name=openstack-ocata
+baseurl=http://mirrors.163.com/centos/7.6.1810/cloud/x86_64/openstack-ocata/
+gpgcheck=0
+enabled=1
+[kvm-common]
+name=kvm-common
+baseurl=http://mirrors.163.com/centos/7.6.1810/virt/x86_64/kvm-common/
+gpgcheck=0
+enabled=1
+
+
+https://www.cnblogs.com/puppet/p/10169139.html
+
+
+
+keystone-manage bootstrap --bootstrap-password ADMIN_PASS --bootstrap-admin-url http://controller:35357/v3/ --bootstrap-internal-url http://controller:35357/v3/ --bootstrap-public-url http://controller:5000/v3/ --bootstrap-region-id RegionOne
+
+
+
+
+openstack --os-auth-url http://controller:35357 --os-project-domain-id default --os-user-domain-id default --os-project-name demo--os-username user--os-password DEMO_PASS token issue
+
+
+
+
+openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin token issue --os-password DEMO_PASS
+
+有线连接_1
+
+
+http://192.168.25.128/dashborad
